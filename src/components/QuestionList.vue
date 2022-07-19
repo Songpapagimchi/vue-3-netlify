@@ -25,35 +25,15 @@
                 </p> -->
                 <p v-html="replaceWithBr(obj.questions[obj.index].question)" class="text-xs font-bold"></p>
                 <label
-                    class="block mt-2 border border-gray-300 rounded-lg py-3 px-3 text-lg justify-center"
-                    :class="{'hover:bg-yellow-600 cursor-pointer duration-300' : obj.AselectedAnswer == ''}"
+                    class="focus:border-blue-400 block mt-2 border border-gray-300 rounded-lg py-3 px-3 text-lg justify-center hover:bg-yellow-600 cursor-pointer"
                     @click="nextQuestion"
                 >
-                    <input
-                        type="radio"
-                        class="hidden"
-                        @change="answered($event)"
-                        v-model="obj.AselectedAnswer"
-                        :disabled="obj.AselectedAnswer != 'A'"
-                    />
                     <img :src="obj.questions[obj.index].answers.a"  />
                 </label>
                 <label
-                    class="block mt-2 border border-gray-300 rounded-lg py-3 px-3 text-lg justify-center"
-                    :class="{'hover:bg-yellow-600 cursor-pointer' : obj.BselectedAnswer == ''},
-                        {'bg-yellow-600' : obj.BselectedAnswer == 'B'}"
-                        @click="nextQuestion"
-                >
-                    <input
-                        type="radio"
-                        :id="B"
-                        class="hidden"
-                        :value="B"
-                        @change="answered($event)"
-                        v-model="obj.BselectedAnswer"
-                        :disabled="obj.selectedAnswer != 'B'"
-                    />
-                    
+                    class="block mt-2 border border-gray-300 rounded-lg py-3 px-3 text-lg justify-center hover:bg-yellow-600 cursor-pointer"
+                    @click="nextQuestion"
+                >                    
                     <img :src="obj.questions[obj.index].answers.b"  />    
                 </label>
             </div>
@@ -80,40 +60,28 @@ import CharResultDetail from '../components/CharResultDetail.vue'
             {
                 question: "1   추억을 사진으로 남기고 싶어\n &nbsp&nbsp사진기를 구매하려고 한다",
                 answers: {a: 'assets/01-1.png', b: 'assets/01-2.png'},
-                correctAnswer: 'a'
             },
             {
                 question: "2   직장을 옮기면서,\n &nbsp&nbsp서울에 집을 구하려고 한다",
                 answers: {a:'assets/02-1.png', b: 'assets/02-2.png'},
-                correctAnswer: 'a'
             },
             {
                 question: "3   회사에서 야근 후 집으로 가는 길은 두 가지이다",
                 answers: {a:'assets/03-1.png', b: 'assets/03-2.png'},
-                correctAnswer: 'a'
             },
             {
                 question: "4   애완동물을 입양해서 방안에 털이가득하다.\n &nbsp&nbsp청소기를 사야하는데...",
                 answers: {a:'assets/04-1.png', b: 'assets/04-2.png'},
-                correctAnswer: 'a'
             },
             {
                 question: "5   자취를 시작하면서 나만의 감성 원룸을 꾸미기 위해\n &nbsp&nbsp 커피테이블을 구매하려고 한다",
                 answers: {a:'assets/05-1.png', b: 'assets/05-2.png'},
-                correctAnswer: 'a'
             },
         ],
         link: 'assets/girl-front-icon.png'
     });
     function replaceWithBr(String){
         return String.replace(/\n/g,"<br />")
-    }
-    function answered(e) {
-        obj.AselectedAnswer = e.target.value
-        if(obj.AselectedAnswer == obj.questions[obj.index].correctAnswer)
-            obj.correctAnswer++
-        else
-            obj.wrongAnswer++
     };
     function nextQuestion() {
         console.log(obj.AselectedAnswer)
