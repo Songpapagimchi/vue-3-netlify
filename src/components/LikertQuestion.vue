@@ -3,9 +3,11 @@
         <div class="flex-col">
             <div class="w-full max-w-xs">
                 <div v-if="likObj.index < likObj.count">
-                    <form class="bg-white rounded-lg shadow-lg w-full mt-8">
-                        <label class="statement">This HTML Likert scale is easy to use.
-                            <img :src="likObj.getImg[likObj.index]" width="560"/>
+                    <form class="bg-white rounded-lg shadow-lg w-full mt-3">
+                        <label class="font-bold text-lg ml-3">Q.&nbsp;{{likObj.questions[likObj.index].word}}
+                            <div class="mt-3">
+                                <img :src="likObj.questions[likObj.index].img" width="560"/>
+                            </div>
                         </label>
                         <ul class='likert'>
                             <li>
@@ -30,12 +32,12 @@
                             </li>
                         </ul>
                     </form> 
-                    <button class="fixed bottom-30 ml-52 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-5"
+                    <button class="fixed bottom-8 ml-52 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-5"
                             @click="nextQuestion">
                             다음 >
                     </button>
                 </div>
-                <div v-else class="w-full max-w-xs">
+                <div v-else>
                     <CharResultDetail />
                 </div>
             </div>
@@ -48,7 +50,16 @@ import { reactive } from 'vue'
 import CharResultDetail from '../components/CharResultDetail.vue'
 
     const likObj = reactive({
-        getImg:['assets/01-1.png','assets/01-2.png'],
+        questions: [
+            {
+                word: "새로운것 보다, 익숙한게 좋다",
+                img: 'assets/B_2.png',
+            },
+            {
+                word: "안전은 옵션이 아니다, 권리이다",
+                img: 'assets/B_1.png',
+            }
+        ],
         ChoiceItem:['매우\n아니다','아니다','보통이다','그렇다','매우\n그렇다'],
         index: 0,
         count: 3
