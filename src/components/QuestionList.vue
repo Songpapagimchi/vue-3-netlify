@@ -26,7 +26,7 @@
                 <p v-html="replaceWithBr(obj.questions[obj.index].question)" class="text-xs font-bold"></p>
                 <label
                     class="block mt-2 border border-gray-300 rounded-lg py-3 px-3 text-lg justify-center"
-                    :class="{'hover:bg-yellow-600 cursor-pointer' : obj.AselectedAnswer == ''}"
+                    :class="{'hover:bg-yellow-600 cursor-pointer duration-300' : obj.AselectedAnswer == ''}"
                     @click="nextQuestion"
                 >
                     <input
