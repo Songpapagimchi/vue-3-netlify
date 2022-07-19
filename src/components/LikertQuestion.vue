@@ -48,7 +48,7 @@ import { reactive } from 'vue'
 import CharResultDetail from '../components/CharResultDetail.vue'
 
     const likObj = reactive({
-        getImg:['public/assets/01-1.png','public/assets/01-2.png'],
+        getImg:['assets/01-1.png','assets/01-2.png'],
         ChoiceItem:['매우\n아니다','아니다','보통이다','그렇다','매우\n그렇다'],
         index: 0,
         count: 3
