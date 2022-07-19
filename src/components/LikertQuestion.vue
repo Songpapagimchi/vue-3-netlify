@@ -1,44 +1,64 @@
 <template>
-    <div class="wrap">
-        <h1 class="likert-header">This is a Likert Scale survey</h1>
-        <form class="bg-white p-12 rounded-lg shadow-lg w-full mt-8">
-
-            <label class="statement">This HTML Likert scale is easy to use.
-                <img :src="likObj.getImg[1]" width="560"/>
-            </label>
-            <ul class='likert'>
-                <li>
-                    <input type="radio" name="likert" value="strong_disagree">
-                    <label>매우 아니다</label>
-                </li>
-                <li>
-                    <input type="radio" name="likert" value="disagree">
-                    <label>아니다</label>
-                </li>
-                <li>
-                    <input type="radio" name="likert" value="neutral">
-                    <label>보통이다</label>
-                </li>
-                <li>
-                    <input type="radio" name="likert" value="agree">
-                    <label>그렇다</label>
-                </li>
-                <li>
-                    <input type="radio" name="likert" value="strong_agree">
-                    <label>매우 그렇다</label>
-                </li>
-            </ul>
-        </form> 
+    <div class="flex w-full h-screen justify-center items-top mt-5">
+        <div class="flex-col">
+            <div class="w-full max-w-xs">
+                <div v-if="likObj.index < likObj.count">
+                    <form class="bg-white rounded-lg shadow-lg w-full mt-8">
+                        <label class="statement">This HTML Likert scale is easy to use.
+                            <img :src="likObj.getImg[likObj.index]" width="560"/>
+                        </label>
+                        <ul class='likert'>
+                            <li>
+                                <input type="radio" name="likert" value="strong_disagree">
+                                <p class="text-sm font-bold" v-html="replaceWithBr(likObj.ChoiceItem[0])"></p>
+                            </li>
+                            <li>
+                                <input type="radio" name="likert" value="disagree">
+                                <p class="text-sm font-bold" v-html="replaceWithBr(likObj.ChoiceItem[1])"></p>
+                            </li>
+                            <li>
+                                <input type="radio" name="likert" value="neutral">
+                                <p class="text-sm font-bold" v-html="replaceWithBr(likObj.ChoiceItem[2])"></p>
+                            </li>
+                            <li>
+                                <input type="radio" name="likert" value="agree">
+                                <p class="text-sm font-bold" v-html="replaceWithBr(likObj.ChoiceItem[3])"></p>
+                            </li>
+                            <li>
+                                <input type="radio" name="likert" value="strong_agree">
+                                <p class="text-sm font-bold" v-html="replaceWithBr(likObj.ChoiceItem[4])"></p>
+                            </li>
+                        </ul>
+                    </form> 
+                    <button class="fixed bottom-30 ml-52 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-5"
+                            @click="nextQuestion">
+                            다음 >
+                    </button>
+                </div>
+                <div v-else class="w-full max-w-xs">
+                    <CharResultDetail />
+                </div>
+            </div>
+        </div>        
     </div>
 </template>
 
 <script setup>
 import { reactive } from 'vue'
+import CharResultDetail from '../components/CharResultDetail.vue'
 
     const likObj = reactive({
-        getImg:['public/assets/01-1.png','public/assets/01-2.png']
+        getImg:['public/assets/01-1.png','public/assets/01-2.png'],
+        ChoiceItem:['매우\n아니다','아니다','보통이다','그렇다','매우\n그렇다'],
+        index: 0,
+        count: 3
     });
-
+    function replaceWithBr(String){
+        return String.replace(/\n/g,"<br />")
+    };
+    function nextQuestion() {
+        likObj.index++
+    };
 </script>
 
 <style>
