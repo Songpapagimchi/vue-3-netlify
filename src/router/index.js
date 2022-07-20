@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import MainPage from "../views/MainPage.vue";
 import QuestionList from "../components/QuestionList.vue";
 import LikertQuestion from "../components/LikertQuestion.vue";
-import DynamicExample from "../components/DynamicExample.vue";
+import VehicleQuestion from "../components/VehicleQuestion.vue";
 import CharResultDetail from "../components/CharResultDetail.vue";
 import CarResultDetail from "../components/CarResultDetail.vue";
 
@@ -24,9 +24,9 @@ const routes = [
         component: LikertQuestion
     },
     {
-        path: "/DynamicExample",
-        name: "DynamicExample",       
-        component: DynamicExample
+        path: "/VehicleQuestion",
+        name: "VehicleQuestion",       
+        component: VehicleQuestion
     },
     {
         path: "/CharResultDetail",
