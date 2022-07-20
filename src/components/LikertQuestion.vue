@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-full h-screen justify-center items-top mt-5">
+    <div class="flex w-full h-screen justify-center items-top mt-3">
         <div v-if="likObj.index < likObj.count" class="flex w-full h-screen justify-center items-top mt-5">
             <div class="flex-col w-full max-w-xs">
                 <form class="bg-white rounded-lg shadow-lg w-full mt-3">
@@ -7,10 +7,11 @@
                         <div class="ml-3">
                             <p v-html="replaceWithBr(likObj.questions[likObj.index].word)" class="text-lg font-bold"></p>
                         </div>
-                        <div class="mt-3">
-                            <img :src="likObj.questions[likObj.index].img" width="560"/>
+                        <div class="mt-3 flex justify-center">
+                            <img :src="likObj.questions[likObj.index].img" width="250"/>
                         </div>
                     </label>
+                    <div class="mt-5"></div>
                     <ul class='likert'>
                         <li>
                             <input type="radio" name="likert" value="strong_disagree">
