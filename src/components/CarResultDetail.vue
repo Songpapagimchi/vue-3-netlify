@@ -1,25 +1,27 @@
 <template>
     <div class="flex w-full h-screen justify-center items-top mt-5">
-        <div class="flex-col">
+        <div class="flex-col ">
             <div class="w-full max-w-xs">
                 <div class="flex items-center">
-                    <div class="w-1/4 text-left text-3xl text-gray-300">&lt;</div>
-                    <div class="flex justify-center font-bold text-xl text-gray-600">
+                    <button class="w-1/4 text-left text-3xl text-gray-700">
+                        <router-link to="/">&lt;</router-link> 
+                    </button>
+                    <div class="flex justify-center font-bold text-xl text-gray-600 ml-5">
                         차량 검사 결과
                     </div>
                 </div>
-                <hr style="height:1px;color:grey" class="mt-3">
+                <hr style="height:1px;color:grey" class="mt-1">
                 <div>
-                    <div class="font-bold text-s text-left text-gray-500  ml-5 mt-5">
+                    <div class="font-bold text-s text-left text-gray-500 mt-3">
                         <p v-html="replaceWithBr(CarVar.Comment)"></p>
                     </div>
                 </div>
-                <div class="flex pt-5 items-baseline ml-3">
+                <div class="flex pt-3 items-baseline ml-3">
                     <div class="w-1/4 font-bold text-xl text-gray-700 underline hover:decoration-4">1순위</div>
                     <div class="w-1/4 font-bold text-xl text-gray-300 hover:text-gray-700 hover:underline decoration-4">2순위</div>
                     <div class="w-2/4 text-sm">자세히 알아보기  ></div>
                 </div>
-                <div class="flex items-center mt-5">
+                <div class="flex items-center mt-3">
                     <div><img :src="CarVar.IconMedal" /></div>
                     <div class="font-bold text-xl text-gray-700 ml-2">기아 쏘렌토 하이브리드</div>
                 </div>
@@ -66,15 +68,21 @@
                     <div class="text-purple-700 font-bold mt-2">성능 최고</div>
                 </div>
             </div>
-            <button class="fixed bottom-8 ml-10 bg-blue-600 py-2 px-4 rounded-l-2xl drop-shadow-lg flex justify-center items-center text-white text-l hover:bg-blue-700 hover:drop-shadow-2xl hover:animate-bounce duration-300">
-                <router-link to="/CarResultDetail">돌아가기</router-link>
-            </button>
+            <div class="mt-5 mb-5">
+                <button class="ml-56 bg-blue-600 py-2 px-4 rounded-2xl drop-shadow-lg flex justify-center items-center text-white text-l hover:bg-blue-700 hover:drop-shadow-2xl ">
+                    <router-link to="/">메인으로</router-link>
+                </button>
+            </div>
+            <div class="my-10">
+                
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
     import { reactive } from 'vue'
+    import MainPage from "../views/MainPage.vue";
     
     const CarVar = reactive({
         Comment: '성능과 안전 두마리 토끼를\n 잡으려는 당신!',
