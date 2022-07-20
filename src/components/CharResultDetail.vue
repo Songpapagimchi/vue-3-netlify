@@ -1,21 +1,23 @@
 <template>
     <div class="flex-col">
         <div class="flex items-center">
-            <div class="w-1/4 text-left text-3xl text-gray-300">&lt;</div>
-            <div class="flex justify-center font-bold text-xl text-gray-600">
+            <button class="w-1/4 text-left text-3xl text-gray-700">
+               <router-link to="/">&lt;</router-link> 
+            </button>
+            <div class="flex justify-center font-bold text-xl text-gray-600 ml-5">
                 나의 취향 결과
             </div>
         </div>
-        <hr style="height:1px;color:grey" class="mt-3">
-        <div class="font-bold text-s text-left text-gray-600 mt-5">
+        <hr style="height:1px;color:grey" class="mt-1">
+        <div class="font-bold text-s text-left text-gray-600 mt-3">
             <p v-html="replaceWithBr(CharVar.Comment)"></p>
         </div>
-        <div class="flex items-center pt-7">
+        <div class="flex items-center pt-5">
             <div>
                 <img :src="CharVar.Target">
             </div>
             <div class="px-2">
-                <div class="font-bold text-s text-left text-gray-600">
+                <div class="font-bold text-base text-left text-gray-600">
                     나의 차량 스타일
                 </div>
                 <div class="font-bold text-xs text-left text-gray-400">   
@@ -46,12 +48,12 @@
                 </div>
             </div>
         </div>
-        <div class="flex items-center pt-10">
+        <div class="flex items-center pt-7">
             <div>
                 <img :src="CharVar.MyChar">
             </div>
             <div class="px-2"> 
-                <div class="font-bold text-s text-left text-gray-600"> 
+                <div class="font-bold text-base text-left text-gray-600"> 
                     내 성향
                 </div>
                 <div class="font-bold text-xs text-left text-gray-400"> 
@@ -60,8 +62,8 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-l-2xl shadow-xl h-full mt-3 flex-col px-5">
-            <div class="py-3">
+        <div class="bg-white rounded-l-2xl shadow-xl h-full mt-1 flex-col px-5">
+            <div class="py-1">
                 <div class="flex items-center py-1">
                     <div class="w-2/6 items-center font-bold text-base text-right pr-3 text-gray-600">가성비</div>
                     <div class="w-4/6 h-3">
