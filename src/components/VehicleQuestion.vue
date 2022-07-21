@@ -80,6 +80,10 @@ import CharResultDetail from '../components/CharResultDetail.vue'
         count: 7,
         questions: [
             {
+                question: "토너먼트 방식으로\n &nbsp&nbsp 나의 차량성향을 알아봐요",
+                answers: {a: 'assets/tournament.png'},
+            },
+            {
                 question: "Q   신뢰도 vs. 동력성능",
                 answers: {a: 'assets/C_1.png', b: 'assets/C_2.png'},
             },
