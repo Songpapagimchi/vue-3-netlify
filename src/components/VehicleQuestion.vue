@@ -77,7 +77,7 @@ import CharResultDetail from '../components/CharResultDetail.vue'
         BselectedAnswer: '',
         correctAnswer: 0,
         wrongAnswer: 0,
-        count: 7,
+        count: 8,
         questions: [
             {
                 question: "토너먼트 방식으로\n &nbsp&nbsp 나의 차량성향을 알아봐요",
